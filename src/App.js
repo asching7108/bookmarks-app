@@ -73,7 +73,9 @@ class App extends Component {
         }
         return res.json()
       })
-      .then(this.setBookmarks)
+      .then(data => {
+        this.setBookmarks(data)
+      })
       .catch(error => this.setState({ error }))
   }
 
