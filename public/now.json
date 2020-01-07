@@ -1,0 +1,9 @@
+{
+    "version": 2,
+    "alias": "asching7108-bookmarks-app",
+    "name": "bookmarks-app",
+    "routes": [
+        { "handle": "filesystem" },
+        { "src": "/.*", "dest": "/index.html" }
+    ]
+  }
