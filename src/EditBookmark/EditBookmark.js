@@ -30,6 +30,7 @@ class EditBookmark extends Component {
     const bookmarkId = this.props.match.params.bookmarkId;
     fetch(config.API_ENDPOINT + `/${bookmarkId}`, {
       method: 'GET',
+      mode: 'no-cors',
       headers: {
         'authorization': `bearer ${config.API_KEY}`
       }
@@ -72,6 +73,7 @@ class EditBookmark extends Component {
     this.setState({ error: null })
     fetch(config.API_ENDPOINT + `/${bookmarkId}`, {
       method: 'PATCH',
+      mode: 'no-cors',
       body: JSON.stringify(bookmark),
       headers: {
         'content-type': 'application/json',

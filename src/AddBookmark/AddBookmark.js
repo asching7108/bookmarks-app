@@ -27,6 +27,7 @@ class AddBookmark extends Component {
     this.setState({ error: null })
     fetch(config.API_ENDPOINT, {
       method: 'POST',
+      mode: 'no-cors',
       body: JSON.stringify(bookmark),
       headers: {
         'content-type': 'application/json',

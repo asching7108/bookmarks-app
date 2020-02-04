@@ -9,6 +9,7 @@ import './BookmarkItem.css';
 function deleteBookmarkRequest(bookmarkId, cb) {
   fetch(config.API_ENDPOINT + `/${bookmarkId}`, {
     method: 'DELETE',
+    mode: 'no-cors',
     headers: {
       'content-type': 'application/json',
       'authorization': `bearer ${config.API_KEY}`
