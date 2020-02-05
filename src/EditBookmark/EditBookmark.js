@@ -32,6 +32,7 @@ class EditBookmark extends Component {
       method: 'GET',
       mode: 'no-cors',
       headers: {
+        'content-type': 'application/json',
         'authorization': `bearer ${config.API_KEY}`
       }
     })
