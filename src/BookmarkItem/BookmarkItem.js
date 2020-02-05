@@ -9,7 +9,6 @@ import './BookmarkItem.css';
 function deleteBookmarkRequest(bookmarkId, cb) {
   fetch(config.API_ENDPOINT + `/${bookmarkId}`, {
     method: 'DELETE',
-    mode: 'no-cors',
     headers: {
       'content-type': 'application/json',
       'authorization': `bearer ${config.API_KEY}`
@@ -21,9 +20,8 @@ function deleteBookmarkRequest(bookmarkId, cb) {
           throw error
         })
       }
-      return res.json()
     })
-    .then(data => {
+    .then(() => {
       cb(bookmarkId)
     })
     .catch(error => {
@@ -51,9 +49,10 @@ export default function BookmarkItem(props) {
           {props.description}
         </p>
         <div className='BookmarkItem__buttons'>
-          <Link to={`/edit/${props.id}`}>Edit Article</Link>
-          <button
-            className='BookmarkItem__description'
+          <Link to={`/edit/${props.id}`}>
+            <button>Edit Article</button>
+          </Link>
+          <button            
             onClick={() => {
               deleteBookmarkRequest(
                 props.id,

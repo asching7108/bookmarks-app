@@ -74,7 +74,6 @@ class App extends Component {
   componentDidMount() {
     fetch(config.API_ENDPOINT, {
       method: 'GET',
-      mode: 'no-cors',
       headers: {
         'content-type': 'application/json',
         'Authorization': `Bearer ${config.API_KEY}`

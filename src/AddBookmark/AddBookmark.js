@@ -22,12 +22,11 @@ class AddBookmark extends Component {
       title: title.value,
       url: url.value,
       description: description.value,
-      rating: rating.value,
+      rating: Number(rating.value),
     }
     this.setState({ error: null })
     fetch(config.API_ENDPOINT, {
       method: 'POST',
-      mode: 'no-cors',
       body: JSON.stringify(bookmark),
       headers: {
         'content-type': 'application/json',
@@ -49,8 +48,8 @@ class AddBookmark extends Component {
         url.value = ''
         description.value = ''
         rating.value = ''
+        this.context.addBookmark(data)
         this.props.history.push('/')
-        this.context.AddBookmark(data)
       })
       .catch(error => {
         this.setState({ error })
